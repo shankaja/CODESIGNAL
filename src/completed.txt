@@ -1,0 +1,51 @@
+PALINDROME TEST
+
+boolean checkPalindrome(String inputString) {
+    int middle = inputString.length() / 2;
+    for(int i = 0; i< middle; i++)
+    {
+        if(inputString.charAt(i) == inputString.charAt(inputString.length()-(i+1)))
+        {
+            continue;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    return true;
+}
+
+LARGEST ADJACENT
+
+int adjacentElementsProduct(int[] inputArray) {
+    int largest = inputArray[0]*inputArray[1];
+    for(int i = 0; i<inputArray.length-1;i++)
+    {
+        if(inputArray[i]*inputArray[i+1]> largest)
+        {
+            largest = inputArray[i]*inputArray[i+1];
+        }
+    }
+    return largest;
+}
+
+//MATRIX SUM ISSUE
+
+int matrixElementsSum(int[][] matrix) {
+    int sum = 0;
+    for (int y = 0 ; y<matrix.length;y++)
+    {
+        for (int x = 0 ; x<matrix[0].length;x++)
+        {
+            if(matrix[y][x] == 0 && y<matrix.length-1)
+            {
+                //assigning 0 to immidiately down room
+                //if a room is haunted
+                matrix[y+1][x] = 0;
+            }
+            sum +=matrix[y][x];
+        }
+    }
+    return sum;
+}
